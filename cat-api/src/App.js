@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -25,7 +25,7 @@ const App = () => {
     }
   };
 
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       setLoading(true);
       const params = {
@@ -43,7 +43,7 @@ const App = () => {
       console.error('Error fetching images:', error);
       setLoading(false);
     }
-  };
+  }, [page, selectedBreed]);
 
   useEffect(() => {
     fetchBreeds();

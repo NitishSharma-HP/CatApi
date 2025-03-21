@@ -53,7 +53,7 @@ const App = () => {
     setCatImages([]);
     setPage(0);
     fetchImages();
-  }, [selectedBreed]);
+  });
 
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1);
